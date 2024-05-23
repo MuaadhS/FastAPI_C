@@ -10,7 +10,6 @@ from .config import settings
 
 # 'postgresql://<username>:<password>@<ip-address/hostname>/<database_name>'
 SQLALCHEMY_DATABASE_URL = f'postgresql://{settings.database_username}:{settings.database_password}@{settings.database_hostname}:{settings.database_port}/{settings.database_name}'
-#SQLALCHEMY_DATABASE_URL = 'postgresql://postgres:0102030405@localhost:5433/fastapi'
 
 #print(SQLALCHEMY_DATABASE_URL)
 
@@ -28,23 +27,3 @@ def get_db():
     finally:
         db.close()
 
-
-# Connection to DB
-# This method is not used it's here for reference
-# The database is connected using sqlalchemy above
-'''
-while True:
-    try:
-        conn = psycopg2.connect(host='localhost', port=5433, database='fastapi',
-                               user='postgres', password='0102030405',
-                               cursor_factory=RealDictCursor)
-
-        cursor = conn.cursor()
-        print("Database connection is successful")
-        break
-
-    except Exception as error:
-        print("connection to database failed")
-        print("Error: ", error)
-        time.sleep(3)
-'''
